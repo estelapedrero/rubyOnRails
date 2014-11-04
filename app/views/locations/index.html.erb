@@ -2,9 +2,5 @@
 <ul>
 	<% @locations.each do |location| %>
 	<li> <%= location.name ? "#{location.name} - " : '' %> <%= location.city %></li>
-	<li> <%= location.all.each do |location| %> 
-		<% %>
-		<% end %>
-	</li>
 	<% end %>
 </ul>
