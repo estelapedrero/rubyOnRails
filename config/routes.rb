@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root 'home#welcome'
-  get 'contact' => 'home#contact'
-  get 'locations' => 'locations#index'
-  get 'locations/:id' => 'locations#show'
+
+  resources :locations do
+    resources :visits    #por estar enlazado a las locations
+  end
+
+
 
   get 'locations/:id/visits' => 'visits#index'
   get 'locations/:location_id/visits/:id' => 'visits#show'

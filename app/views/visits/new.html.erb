@@ -1,0 +1,20 @@
+<h1>create a new visit <%= @location.name %> </h1>
+
+<% if @visit.errors.any? %>
+<ul>
+	<% @visit.errors.full_messages.each do |error_message| %>
+	<li> <%= error_message %> </li>
+	<% end %>
+</ul>
+<% end %>
+
+
+<%= form_for [@location, @visit] do |f| %>
+	<%= f.label :user_name %>
+	<%= f.text_field :user_name %>
+	<%= f.datetime_select(:from_date, default: Time.now + 1.days) %>
+	<%= f.datetime_select(:to_date, default: Time.now + 1.days) %>
+	<%= f.submit "sendsendsend!" %>
+
+	<%= link_to 'cancel', location_visits_path(@location.id) %>
+<% end %>
