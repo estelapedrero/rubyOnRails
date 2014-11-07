@@ -1,13 +1,20 @@
 <h1>Locations</h1>
+
+<h2><% if flash[:error] %>
+ <%= flash[:error] %>
+<% end %>
+</h2>
+
 <ul>
 	<% @locations.each do |location| %>
 	<li> 
 	<% if location.name.present? %>
 		
 		<!--<%= link_to location.name, location_visits_path(location) %>-->
-		<%= location.name %>
-		<%= location.latitud %>
-		<%= location.longitud %>
+		<div><%= location.name %></div>
+		<div><%= location.city %> - <%= location.country %></div>
+		<div><%= "lat: #{location.latitud} - long: #{location.longitud}" %> </div>
+		<div><%= location.description %></div>
 
 	<% else %>
 		<%= link_to location.city, location_visits_path(location) %></li>	

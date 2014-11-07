@@ -1,6 +1,5 @@
 <h1>add a new location</h1>
 
-
 <% if flash[:error] %>
  <%= flash[:error] %>
 <% end %>
@@ -13,19 +12,21 @@
 </ul>
 <% end %>
 
-
-
-
-
-
-
 <%= form_for [@location] do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.label :latitud %>
+	<div><%= f.label :name %>
+	<%= f.text_field :name %></div>
+	<div><%= f.label :latitud %>
 	<%= f.text_field :latitud %>
 	<%= f.label :longitud %>
-	<%= f.text_field :longitud %>
-	<%= f.submit "sendsendsend!" %>
+	<%= f.text_field :longitud %></div>
+	<div><%= f.label :city %>
+	<%= f.text_field :city %>
+	<%= f.label :country %>
+	<%= f.text_field :country %></div>
+	<div><%= f.label :zip_code %>
+	<%= f.text_field :zip_code %></div>
+	<div><%= f.label :description %>
+	<%= f.text_field :description %></div>
+	<div> <%= f.submit "sendsendsend!" %></div>
 
 	<% end %>

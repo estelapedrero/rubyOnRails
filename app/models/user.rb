@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+	has_many :visits
+
 	validates :name, presence: true
 	validates :email, presence: true
 

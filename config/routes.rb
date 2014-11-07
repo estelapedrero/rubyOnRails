@@ -2,15 +2,13 @@ Rails.application.routes.draw do
   root 'home#welcome'
 
   resources :locations do
-    resources :visits   #por estar enlazado a las locations
+    resources :visits  #por estar enlazado a las locations
   end
 
   resources :users do
-    
+    resources :visits
   end
-
-
-
+ 
   get 'locations/:id/visits' => 'visits#index'
   get 'locations/:location_id/visits/:id' => 'visits#show'
 

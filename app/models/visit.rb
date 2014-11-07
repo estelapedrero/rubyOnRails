@@ -1,6 +1,7 @@
 class Visit < ActiveRecord::Base
 	
 	belongs_to :location
+	belongs_to :user
 
 	validates :from_date, presence:true
 	validates :to_date, presence:true
