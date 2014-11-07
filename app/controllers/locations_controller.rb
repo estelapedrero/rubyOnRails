@@ -2,10 +2,12 @@ class LocationsController < ApplicationController
 	def index
 		@locations = Location.last_created(5)
 	end
+	
 	def show
 		redirect_to action: 'index', controller: 'locations' unless @location = Location.find_by_name(params[:id])
 		flash[:error] = "This location doesn't exist!"
 	end
+
 	def new
 		@location = Location.new #esta nueva visita esta asociada a la localizacion
 	end
