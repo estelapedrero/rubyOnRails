@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20141107085812) do
     t.string   "street"
     t.string   "country"
     t.text     "description"
-    t.string   "altitud"
+    t.string   "latitud"
     t.string   "longitud"
   end
 

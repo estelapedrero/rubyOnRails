@@ -3,8 +3,11 @@
 	<% @locations.each do |location| %>
 	<li> 
 	<% if location.name.present? %>
-		<%= link_to location.name, location_visits_path(location) %>
-		<%= location.city %>
+		
+		<!--<%= link_to location.name, location_visits_path(location) %>-->
+		<%= location.name %>
+		<%= location.latitud %>
+		<%= location.longitud %>
 
 	<% else %>
 		<%= link_to location.city, location_visits_path(location) %></li>	

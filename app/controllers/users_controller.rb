@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	def index
-		@user = User.showOrdenado(50)
+		@users = User.showOrdenado(50)
 	end
 	def new
 		@user = User.new #esta nueva visita esta asociada a la localizacion

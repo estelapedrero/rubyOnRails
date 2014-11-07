@@ -1,0 +1,31 @@
+<h1>add a new location</h1>
+
+
+<% if flash[:error] %>
+ <%= flash[:error] %>
+<% end %>
+
+<% if @location.errors.any? %>
+<ul>
+	<% @location.errors.full_messages.each do |error_message| %>
+	<li> <%= error_message %> </li>
+	<% end %>
+</ul>
+<% end %>
+
+
+
+
+
+
+
+<%= form_for [@location] do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :latitud %>
+	<%= f.text_field :latitud %>
+	<%= f.label :longitud %>
+	<%= f.text_field :longitud %>
+	<%= f.submit "sendsendsend!" %>
+
+	<% end %>
