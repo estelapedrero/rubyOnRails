@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   root 'home#welcome'
 
   resources :locations do
-    resources :visits    #por estar enlazado a las locations
+    resources :visits   #por estar enlazado a las locations
+  end
+
+  resources :users do
+    
   end
 
 

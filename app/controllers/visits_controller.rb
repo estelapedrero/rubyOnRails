@@ -14,8 +14,8 @@ class VisitsController < ApplicationController
 	end
 
 	def destroy
-		@visit = Visit.destroy(params[:id])
-		redirect_to location_visits_path @visit.location
+		visit = Visit.destroy(params[:id])
+		redirect_to location_visits_path visit.location
 	end
 
 	def create
@@ -23,8 +23,10 @@ class VisitsController < ApplicationController
 		@visit = @location.visits.new visit_params
 
 		if @visit.save
-			redirect_to location_visits_path @location
+			flash[:notice] = "Congratulation, visit was created!"
+ 			redirect_to action: 'index', controller: 'visits', location_id: @location.id
 		else
+			flash[:error] = 'MAAAAAL!'
 			render 'new'
 		end
 	end
