@@ -8,7 +8,11 @@ class Location < ActiveRecord::Base
 	validates :longitud, presence: true
 	
 	def self.last_created(n)
-		order(created_at: :asc).limit(n)
+		order(created_at: :desc).limit(n)
+	end
+
+	def to_param
+		name
 	end
 
 end

@@ -6,7 +6,7 @@
 
 <ul>
 <% @visits.each do |visit| %>
-	<li> <%= "#{visit.user_name} #{visit.tlf} #{visit.from_date} #{visit.to_date}" %> 
+	<li> <%= "#{visit.user.name} #{visit.tlf} #{visit.from_date} #{visit.to_date}" %> 
 		<%= link_to 'edit visit', edit_location_visit_path(@location, visit) %>
 		<%= link_to 'delete visit', location_visit_path(@location, visit), method: 'delete', data: {confirm: "r u sure?"} %></li>
 	<% end %>

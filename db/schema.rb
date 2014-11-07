@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20141107085812) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
-    t.string   "user_name"
+    t.integer  "user_id"
     t.datetime "from_date"
     t.datetime "to_date"
     t.integer  "tlf"

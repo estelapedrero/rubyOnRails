@@ -1,7 +1,7 @@
 class VisitsController < ApplicationController
 	def index
-		@location = Location.find(params[:location_id])
-		@visits = @location.visits
+		@location = Location.find_by_name(params[:location_id])
+		@visits = @location.visits.last_created(6)
 	end
 
 	def show
@@ -9,8 +9,9 @@ class VisitsController < ApplicationController
 	end
 
 	def new
-		@location=Location.find params[:location_id]
+		@location=Location.find_by_name params[:location_id]
 		@visit = @location.visits.new #esta nueva visita esta asociada a la localizacion
+		@user = User.all
 	end
 
 	def destroy
@@ -19,12 +20,12 @@ class VisitsController < ApplicationController
 	end
 
 	def create
-		@location=Location.find params[:location_id]
+		@location=Location.find_by_name params[:location_id]
 		@visit = @location.visits.new visit_params
 
 		if @visit.save
 			flash[:notice] = "Congratulation, visit was created!"
- 			redirect_to action: 'index', controller: 'visits', location_id: @location.id
+ 			redirect_to location_visits_path @location
 		else
 			flash[:error] = 'MAAAAAL!'
 			render 'new'
@@ -48,7 +49,7 @@ class VisitsController < ApplicationController
 
 	private	
 	def visit_params
-		params.require(:visit).permit(:user_name, :from_date, :to_date)
+		params.require(:visit).permit(:user_id, :from_date, :to_date)
 	end
 
 end

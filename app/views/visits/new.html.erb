@@ -1,4 +1,4 @@
-<h1>create a new visit <%= @location.name %> </h1>
+<h1>create a new visit at <%= @location.name %> </h1>
 
 <% if flash[:error] %>
  <%= flash[:error] %>
@@ -13,9 +13,8 @@
 <% end %>
 
 
-<%= form_for [@location, @visit, @user] do |f| %>
-	<%= f.label :user_name %>
-	<%= f.user_name.all_select :user_name %>
+<%= form_for [@location, @visit] do |f| %>
+	<%= f.select :user_id, User.all.map { |user| [user.name, user.id]} %>
 	<%= f.label :from_date %>
 	<%= f.datetime_select(:from_date, default: Time.now + 1.days) %>
 	<%= f.label :to_date %>
